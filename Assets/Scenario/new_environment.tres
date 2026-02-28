@@ -1,0 +1,29 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://d02smbokwq5j1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5f10u"]
+sky_energy_multiplier = 10.74
+
+[sub_resource type="Sky" id="Sky_1byp4"]
+sky_material = SubResource("ProceduralSkyMaterial_5f10u")
+process_mode = 3
+radiance_size = 1
+
+[resource]
+background_energy_multiplier = 0.27
+sky = SubResource("Sky_1byp4")
+ambient_light_source = 3
+reflected_light_source = 2
+tonemap_mode = 3
+tonemap_exposure = 1.24
+ssao_enabled = true
+sdfgi_energy = 2.0
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 2.42
+glow_bloom = 0.05
+fog_enabled = true
+fog_light_color = Color(0.129412, 0.129412, 0.129412, 1)
+fog_density = 0.1278
+volumetric_fog_density = 0.001
+adjustment_enabled = true
+adjustment_contrast = 1.03
