@@ -1,4 +1,5 @@
 # Scrappers Guild Poncho Viewer
+[Artstation Art Breakdown](https://www.artstation.com/artwork/a0zwxX)
 
 A 3D viewer for a poncho model inspired by the Bracca scrappers from Star Wars Jedi: Fallen Order. Built in Godot 4.6.1 as an educational study project.
 
@@ -27,7 +28,7 @@ See [LICENSE](LICENSE) for full details.
 
 ## 🎮 How to Run
 
-1. Download and install [Godot 4.6.1](https://godotengine.org/download) (not 4.7+)
+1. Download [Godot 4.6.1](https://godotengine.org/download) 
 2. Clone or download this repository
 3. Open the project in Godot
 4. Press **F5** or click **Run** to start the viewer
