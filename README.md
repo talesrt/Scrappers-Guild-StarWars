@@ -1,6 +1,7 @@
 # Star Wars Character in Godot 4 — Real-Time Showcase
 Full project breakdown on 24/03 at [ArtStation](https://www.artstation.com/artwork/a0zwxX)
 
+![Preview](Preview.gif)
 
 ## 🎮 For Game Devs
 
