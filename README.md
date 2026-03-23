@@ -42,7 +42,7 @@ You can check uvs, modifiers and scene preparations.
 You'll see:
 - UV layout for PBR texturing
 - Material slot organization
-- Topology for real-time rendering (~80k tris, proper edge flow)
+- Topology for real-time rendering (~3280k tris, proper edge flow)
 If you're trying to get realistic characters into Godot, this is a reference for **what actually works** when you import, not just what looks good in Blender's viewport.
 Textures are 4K.
 ## The honest take
