@@ -2,10 +2,12 @@
 Everyone has an opinion on whether Godot can handle high-fidelity character presentation. But I couldn't find anyone who actually **loaded a real AAA-quality asset** and documented what happens.
 So here's the experiment.
 ![Character Preview](Preview.gif)
+
 ## What I'm testing
-I've modeled and went trhought the full pipeline of game asset, PBR-textured character garmet (Star Wars "Scrapper Guild" reference from Jedi Survivor, ~28k tris, 4K textures) and ran it through Godot 4.6's standard rendering pipeline.
+I was doing an asset for AAA quality presentation, and instead of just pushing it to Unreal like most people decide to run it through Godot 4.6's standard rendering pipeline.
 No custom shaders. No render hacks. Just StandardMaterial3D, real-time lighting, and a camera orbit system.
 The goal: **find the ceiling**. Where does Godot start to struggle? What breaks first, materials, lighting, performance, or workflow?
+
 ## Why this matters
 Most Godot demos use stylized, low-poly assets. Which is fine, but it doesn't answer the question developers actually care about:
 **"If I have a realistic character asset, how far can I push Godot before I hit a wall?"**
@@ -19,6 +21,7 @@ This project exists to give you real data instead of Reddit arguments.
 - Texture import settings matter more than I expected (mipmaps, compression)!
 - No real issues, just the usual 3D pipeline stuff
 **Where it breaks**: I haven't hit a hard limit yet. But I'm also not running this on a potato or trying to put 50 characters on screen.
+
 ## For developers
 If you want to test your own hardware or push this further:
 ```bash
@@ -35,6 +38,7 @@ Try this:
 If you find a breaking point, document it. That's useful data for everyone.
 ## For artists
 The original Blender file is in `/source`. This is the **production file**, not a cleaned-up export.
+You can check uvs, modifiers and scene preparations.
 You'll see:
 - UV layout for PBR texturing
 - Material slot organization
