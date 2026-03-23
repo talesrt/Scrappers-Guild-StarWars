@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ble5ihyabk3e6" path="res://Scenes/Scene Builder/Scenes/LVL_Viewer_Control.tscn" id="2_aaktx"]
 [ext_resource type="PackedScene" uid="uid://b2xs4461qdved" path="res://Scenes/Scene Builder/Scenes/LVL_Ui.tscn" id="3_ekobv"]
 [ext_resource type="Script" uid="uid://pbtbbk371l33" path="res://Scenes/Scene Builder/Scripts/ui.gd" id="4_qoee6"]
+[ext_resource type="Texture2D" uid="uid://druu57yuswthe" path="res://icon.svg" id="5_aaktx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihh8p"]
 albedo_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
@@ -21,7 +22,7 @@ sky_energy_multiplier = 2.69
 sky_material = SubResource("ProceduralSkyMaterial_dfw7b")
 process_mode = 3
 
-[sub_resource type="Environment" id="Environment_pcvj1"]
+[sub_resource type="Environment" id="Environment_ekobv"]
 resource_local_to_scene = true
 background_mode = 2
 background_energy_multiplier = 0.72
@@ -68,16 +69,24 @@ skeleton = NodePath("../..")
 
 [node name="Camera3D" parent="Point_zero/Viewer_Control/ViewerRoot" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.325)
-environment = SubResource("Environment_pcvj1")
+environment = SubResource("Environment_ekobv")
 
 [node name="DirectionalLight3D" parent="Point_zero/Viewer_Control/WorldRoot" index="0"]
 shadow_bias = 0.045
 shadow_reverse_cull_face = true
 
 [node name="WorldEnvironment" parent="Point_zero/Viewer_Control/WorldRoot" index="1"]
-environment = SubResource("Environment_pcvj1")
+environment = SubResource("Environment_ekobv")
 
 [node name="Ui" parent="Point_zero" unique_id=322017135 instance=ExtResource("3_ekobv")]
 script = ExtResource("4_qoee6")
+
+[node name="ITSMEMARIO" type="Decal" parent="." unique_id=581292074]
+transform = Transform3D(-0.0042518144, 0.0005084168, -0.0038312608, 0.0035675059, -0.0016746131, -0.0041813324, -0.001486589, -0.0054728556, 0.00092350994, 0.015952667, 1.3664547, 0.07028925)
+size = Vector3(2.456543, 2, 2.5079346)
+texture_albedo = ExtResource("5_aaktx")
+modulate = Color(0.8217887, 0.82178867, 0.82178867, 1)
+albedo_mix = 0.25
+distance_fade_enabled = true
 
 [editable path="Point_zero/Viewer_Control"]

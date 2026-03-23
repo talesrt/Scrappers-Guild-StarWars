@@ -46,6 +46,12 @@ reset_view={
 ]
 }
 
+[physics]
+
+jolt_physics_3d/motion_queries/recovery_iterations=1
+3d/solver/solver_iterations=1
+2d/solver/solver_iterations=1
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=2
@@ -57,5 +63,8 @@ camera/depth_of_field/depth_of_field_use_jitter=true
 anti_aliasing/quality/msaa_3d=3
 anti_aliasing/quality/use_debanding=true
 scaling_3d/mode=1
+environment/volumetric_fog/volume_size=16
+environment/volumetric_fog/volume_depth=16
+environment/volumetric_fog/use_filter=0
 anti_aliasing/quality/screen_space_aa=1
 anti_aliasing/quality/use_taa=true
