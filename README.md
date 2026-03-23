@@ -1,70 +1,88 @@
-# Scrappers Guild Poncho Viewer
-[Artstation Art Breakdown](https://www.artstation.com/artwork/a0zwxX)
+# Star Wars Character in Godot 4 — Real-Time Showcase
+Full project breakdown on 24/03 at [ArtStation](https://www.artstation.com/artwork/a0zwxX)
 
-A 3D viewer for a poncho model inspired by the Bracca scrappers from Star Wars Jedi: Fallen Order. Built in Godot 4.6.1 as an educational study project.
 
-![Preview](Thumb.jpg)
+## 🎮 For Game Devs
 
-## ⚠️ Disclaimer
+This is **not a prototype**. This is **proof-of-concept AAA-quality character art running in Godot 4**.
 
-This project is **not affiliated with**, **endorsed by**, or **associated with** Lucasfilm, Disney, or Respawn Entertainment.
+Most Godot demos show what the engine can do.  
+This project shows **what happens when the asset is already AAA**.
 
-All intellectual property related to Star Wars, including characters, costumes, designs, and the Bracca setting, is owned by Lucasfilm Ltd. and Disney.
+**Goal:** demonstrate that Godot 4 can handle **real-time, portfolio-grade character presentation**, bridging high-end asset pipelines with open-source engines.
 
-This model was created for **educational and study purposes only**. It is not intended for commercial use, redistribution, or claiming as your own work.
+**Highlights:**
 
-## 📜 License
+- Real-time 3D character viewer, fully interactive  
+- Cinematic lighting, PBR materials, game-ready topology  
+- Pipeline: ZBrush → Blender → Marmoset → Substance → Godot  
+- Camera rig with orbit controls, zoom, and pan  
+- No extras required, runs out-of-the-box in Godot 4.6.1  
 
-**CC BY-NC-SA 4.0** (Creative Commons Attribution-NonCommercial-ShareAlike 4.0)
-
-- ✅ **Allowed**: Study, analysis, and personal learning
-- ✅ **Allowed**: Sharing with credit
-- ✅ **Allowed**: Creating derivative works with attribution
-- ❌ **Forbidden**: Any commercial use
-- ❌ **Forbidden**: Selling or including in paid products
-- ❌ **Forbidden**: Claiming ownership of the original IP
-
-See [LICENSE](LICENSE) for full details.
-
-## 🎮 How to Run
-
-1. Download [Godot 4.6.1](https://godotengine.org/download) 
-2. Clone or download this repository
-3. Open the project in Godot
-4. Press **F5** or click **Run** to start the viewer
-
-### Controls
-- **Left Click + Drag**: Rotate camera
-- **Scroll Wheel**: Zoom in/out
-- **Right Click + Drag**: Pan camera
-
-## 📁 Project Structure
-
+**Run it yourself:**
 ```
-Scrappers-Guild-StarWars/
-├── Assets/                  # 3D models and textures
-├── Scenes/                  # Godot scenes
-├── addons/                  # Godot addons
-├── Thumb.jpg               # Preview thumbnail
-├── project.godot           # Godot project file
-├── export_presets.cfg      # Export configuration
-├── LICENSE                 # CC BY-NC-SA 4.0 license
-└── README.md               # This file
+Download Godot 4.6.1: https://godotengine.org/download
+Clone repo: git clone https://github.com/talesrt/Scrappers-Guild-StarWars
+Open project.godot in Godot
+Press F5 (Run)
 ```
 
-## 🎯 Purpose
+**Controls:**
+- Left Click + Drag → Rotate  
+- Scroll Wheel → Zoom
+- Middle Click + Drag → Pan
+- Right Click + Drag → Light 
 
-This project was created to help visualize and study:
-- 3D modeling for games
-- Godot engine workflows
-- Character asset presentation
-
-## 📝 Credits
-
-- **3D Model**: Created by Talesrt
-- **Inspired by**: Star Wars Jedi: Fallen Order (Respawn Entertainment / Lucasfilm)
-- **Engine**: Godot 4.6.1
+**Why this matters for devs:**  
+Shows Godot 4 as a **capable platform for High Tier art**, not just simple  prototypes. Perfect for demos, portfolio showcases, or client presentations.
 
 ---
 
-*This project is for educational purposes only. All Star Wars-related IP belongs to Lucasfilm and Disney.*
+## 🔧 Key Technical Decisions
+
+| Decision | Reason |
+|----------|--------|
+| Silhouette readability | Easy to read at small scales or print |
+| Balanced detail | Focus on primary areas, secondary support |
+| Game-ready polycount | Optimized for real-time without sacrificing fidelity |
+| PBR textures | Accurate materials with workflow from Substance Painter |
+| Lighting setup | Cinematic, dynamic, engine-native lighting |
+
+**Bonus:** Wireframe, clay renders, close-ups included to demonstrate process.
+
+---
+
+## 🎨 For Artists
+
+This project shows **how high-quality game asset translates into an open-source engine context**:
+
+- **Character Artist skills** – design, sculpt, aesthetic decisions  
+- **Technical Artist skills** – polycount, texturing, engine integration  
+- **Pipeline-aware Professional** – fully production-ready workflow  
+
+Open to **character art, technical art, and pipeline roles**.  
+📬 Contact: [e-mail me](talesdarocha@gmail.com)  
+Full project on [ArtStation](https://www.artstation.com/artwork/a0zwxX)  
+
+---
+
+## 👀 For the Community
+
+Fork it. Break it. Learn from it.  
+This is the **entire asset, scene, and setup** — not just screenshots or video exports.  
+If you’ve ever wondered **what a AAA-grade character looks like inside Godot**, this is your reference.
+
+---
+
+## ⚠️ IP & License
+
+Non-commercial fan-inspired study project.
+
+- Not affiliated with Lucasfilm, Disney, or Respawn  
+- Star Wars IP belongs to Lucasfilm / Disney  
+- CC BY-NC-SA 4.0: share, study, derivative works allowed with attribution; commercial use prohibited
+
+---
+
+*Built in Godot 4.6.1. All character work by Talesrt.*
+```
