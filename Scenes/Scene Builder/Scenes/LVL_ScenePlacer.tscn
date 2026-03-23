@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://jrpe5cq33mri"]
+
+[ext_resource type="PackedScene" uid="uid://bqhuppo8a7i5y" path="res://Scenes/LVL_Scrapper_Outfit.tscn" id="1_pcvj1"]
+[ext_resource type="PackedScene" uid="uid://ble5ihyabk3e6" path="res://Scenes/Scene Builder/Scenes/LVL_Viewer_Control.tscn" id="2_aaktx"]
+[ext_resource type="PackedScene" uid="uid://b2xs4461qdved" path="res://Scenes/Scene Builder/Scenes/LVL_Ui.tscn" id="3_ekobv"]
+[ext_resource type="Script" uid="uid://pbtbbk371l33" path="res://Scenes/Scene Builder/Scripts/ui.gd" id="4_qoee6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihh8p"]
+albedo_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+distance_fade_mode = 1
+distance_fade_max_distance = 5.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5gb3n"]
+material = SubResource("StandardMaterial3D_ihh8p")
+size = Vector2(10, 10)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dfw7b"]
+sky_energy_multiplier = 2.69
+
+[sub_resource type="Sky" id="Sky_ls3ra"]
+sky_material = SubResource("ProceduralSkyMaterial_dfw7b")
+process_mode = 3
+
+[sub_resource type="Environment" id="Environment_pcvj1"]
+resource_local_to_scene = true
+background_mode = 2
+background_energy_multiplier = 0.72
+sky = SubResource("Sky_ls3ra")
+reflected_light_source = 2
+tonemap_mode = 3
+ssr_enabled = true
+ssao_enabled = true
+ssao_radius = 0.5
+ssil_enabled = true
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+sdfgi_y_scale = 0
+sdfgi_energy = 0.75
+glow_enabled = true
+glow_normalized = true
+glow_bloom = 0.06
+fog_enabled = true
+fog_light_color = Color(0.4, 0.4, 0.4, 1)
+fog_light_energy = 0.23
+fog_density = 0.0772
+fog_height = -137.85
+volumetric_fog_density = 0.4566
+volumetric_fog_albedo = Color(0.25098, 0.25098, 0.25098, 1)
+adjustment_enabled = true
+adjustment_brightness = 0.9
+adjustment_contrast = 1.065
+adjustment_saturation = 0.92
+
+[node name="Scene_Root" type="Node3D" unique_id=675208006]
+
+[node name="Point_zero" type="Node3D" parent="." unique_id=1939330828]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Scrapper_Outfit" parent="Point_zero" unique_id=341905862 instance=ExtResource("1_pcvj1")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0, -0.527397, 0)
+
+[node name="Ground" type="MeshInstance3D" parent="Point_zero" unique_id=1047196311]
+transform = Transform3D(6.72252, 0, 0, 0, 1.00151, 0, 0, 0, 8.54546, 0, -0.5, 0)
+mesh = SubResource("PlaneMesh_5gb3n")
+skeleton = NodePath("../..")
+
+[node name="Viewer_Control" parent="Point_zero" unique_id=1227372388 instance=ExtResource("2_aaktx")]
+
+[node name="Camera3D" parent="Point_zero/Viewer_Control/ViewerRoot" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.325)
+environment = SubResource("Environment_pcvj1")
+
+[node name="DirectionalLight3D" parent="Point_zero/Viewer_Control/WorldRoot" index="0"]
+shadow_bias = 0.045
+shadow_reverse_cull_face = true
+
+[node name="WorldEnvironment" parent="Point_zero/Viewer_Control/WorldRoot" index="1"]
+environment = SubResource("Environment_pcvj1")
+
+[node name="Ui" parent="Point_zero" unique_id=322017135 instance=ExtResource("3_ekobv")]
+script = ExtResource("4_qoee6")
+
+[editable path="Point_zero/Viewer_Control"]

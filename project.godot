@@ -14,10 +14,10 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="Jedi Survivors"
-run/main_scene="res://Scenes/Scene Builder/Scenes/ScenePlacer.tscn"
+config/name="Scrappers Guild-StarWars"
+run/main_scene="res://Scenes/Scene Builder/Scenes/LVL_ScenePlacer.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="uid://dd07uo1ruj6vn"
+config/icon="uid://bnsj182whvqq2"
 
 [display]
 

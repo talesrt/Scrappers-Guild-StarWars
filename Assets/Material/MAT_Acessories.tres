@@ -1,0 +1,15 @@
+[gd_resource type="ORMMaterial3D" format=3 uid="uid://8q5g1apnf1g0"]
+
+[ext_resource type="Texture2D" uid="uid://8j5svjgmyart" path="res://Assets/Textures/TEX_Acessories_BaseColor.png" id="1_jr2g2"]
+[ext_resource type="Texture2D" uid="uid://dieko4kw8q72i" path="res://Assets/Textures/TEX_Acessories_Emissive.png" id="2_1axx4"]
+[ext_resource type="Texture2D" uid="uid://ddrofawynmy6c" path="res://Assets/Textures/TEX_Acessories_Normal.png" id="3_viohs"]
+[ext_resource type="Texture2D" uid="uid://w4g75x3i6t1c" path="res://Assets/Textures/TEX_Acessories_ORM.png" id="4_0jr30"]
+
+[resource]
+albedo_texture = ExtResource("1_jr2g2")
+orm_texture = ExtResource("4_0jr30")
+emission_enabled = true
+emission_texture = ExtResource("2_1axx4")
+normal_enabled = true
+normal_texture = ExtResource("3_viohs")
+ao_enabled = true

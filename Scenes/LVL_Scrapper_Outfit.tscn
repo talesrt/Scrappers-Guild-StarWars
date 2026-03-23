@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bqhuppo8a7i5y"]
+
+[ext_resource type="ArrayMesh" uid="uid://crog0asnyagi0" path="res://Assets/Mesh/In-game/Jedi_GEO_Poncho.res" id="1_suydi"]
+[ext_resource type="Material" uid="uid://csfm3a12hvxxl" path="res://Assets/Material/MAT_Hold.tres" id="2_a3re3"]
+[ext_resource type="ArrayMesh" uid="uid://diynod7bgscbx" path="res://Assets/Mesh/In-game/Jedi_GEO_Body.res" id="3_776ul"]
+[ext_resource type="ArrayMesh" uid="uid://bn0jqxw437jbn" path="res://Assets/Mesh/In-game/Jedi_GEO_Jacket.res" id="4_43bnb"]
+
+[node name="Jedi" type="Node3D" unique_id=1733874771]
+
+[node name="Poncho" type="Node3D" parent="." unique_id=1684549694]
+
+[node name="Poncho" type="MeshInstance3D" parent="Poncho" unique_id=1206978953]
+cast_shadow = 2
+gi_mode = 2
+mesh = ExtResource("1_suydi")
+skeleton = NodePath("")
+
+[node name="BodyPlaceholder" type="Node3D" parent="." unique_id=1513858659]
+
+[node name="Body" type="MeshInstance3D" parent="BodyPlaceholder" unique_id=525319688]
+material_override = ExtResource("2_a3re3")
+gi_mode = 2
+mesh = ExtResource("3_776ul")
+skeleton = NodePath("")
+
+[node name="Jacket" type="Node3D" parent="." unique_id=403310630]
+
+[node name="Jacket" type="MeshInstance3D" parent="Jacket" unique_id=324509393]
+cast_shadow = 2
+gi_mode = 2
+mesh = ExtResource("4_43bnb")
+skeleton = NodePath("")

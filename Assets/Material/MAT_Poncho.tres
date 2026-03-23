@@ -1,0 +1,23 @@
+[gd_resource type="ORMMaterial3D" format=3 uid="uid://dxuyrqtjbhweg"]
+
+[ext_resource type="Texture2D" uid="uid://cu04y6mj5tqmf" path="res://Assets/Textures/TEX_Poncho_BaseColor.png" id="1_4mr23"]
+[ext_resource type="Texture2D" uid="uid://dyit3wibdcu1h" path="res://Assets/Textures/TEX_Poncho_Normal.png" id="2_3w8oa"]
+[ext_resource type="Texture2D" uid="uid://d1fa7towa8uqc" path="res://Assets/Textures/TEX_Poncho_ORM.png" id="3_1jf2l"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.287
+alpha_antialiasing_mode = 0
+cull_mode = 2
+depth_draw_mode = 1
+albedo_texture = ExtResource("1_4mr23")
+orm_texture = ExtResource("3_1jf2l")
+normal_enabled = true
+normal_texture = ExtResource("2_3w8oa")
+rim_enabled = true
+ao_enabled = true
+ao_light_affect = 1.0
+billboard_keep_scale = true
+proximity_fade_distance = 0.01
+distance_fade_max_distance = 0.0
+stencil_flags = 2

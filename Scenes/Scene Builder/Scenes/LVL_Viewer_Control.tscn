@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://ble5ihyabk3e6"]
+
+[ext_resource type="Script" uid="uid://dw7u20l0hmw75" path="res://Scenes/Scene Builder/Scripts/sceneControl.gd" id="1_154vq"]
+[ext_resource type="Environment" uid="uid://cjmejx3vxwnvw" path="res://Scenes/Scene Builder/Scenes/default_world.tres" id="2_hhnad"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_j4tof"]
+dof_blur_far_enabled = true
+
+[node name="Scene Control" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.813894, 0)
+script = ExtResource("1_154vq")
+
+[node name="ViewerRoot" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="ViewerRoot"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.27827)
+environment = ExtResource("2_hhnad")
+attributes = SubResource("CameraAttributesPractical_j4tof")
+current = true
+fov = 37.8493
+near = 0.01
+far = 100.0
+
+[node name="WorldRoot" type="Node3D" parent="."]
+transform = Transform3D(0.950932, 0, -0.309399, 0, 1, 0, 0.309399, 0, 0.950932, 0, -1.31389, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldRoot"]
+transform = Transform3D(-0.889071, -0.0869474, 0.449438, 0.454593, -0.283185, 0.844483, 0.0538485, 0.955116, 0.291297, 2.43071, 3.61672, 1.22296)
+light_color = Color(1, 0.917647, 0.819608, 1)
+light_energy = 2.0
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="WorldRoot"]
+environment = ExtResource("2_hhnad")
