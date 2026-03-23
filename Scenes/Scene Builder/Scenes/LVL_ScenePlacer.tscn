@@ -22,10 +22,10 @@ sky_energy_multiplier = 2.69
 sky_material = SubResource("ProceduralSkyMaterial_dfw7b")
 process_mode = 3
 
-[sub_resource type="Environment" id="Environment_ekobv"]
+[sub_resource type="Environment" id="Environment_aaktx"]
 resource_local_to_scene = true
 background_mode = 2
-background_energy_multiplier = 0.72
+background_energy_multiplier = 0.39
 sky = SubResource("Sky_ls3ra")
 reflected_light_source = 2
 tonemap_mode = 3
@@ -52,6 +52,44 @@ adjustment_brightness = 0.9
 adjustment_contrast = 1.065
 adjustment_saturation = 0.92
 
+[sub_resource type="Animation" id="Animation_aaktx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ekobv"]
+resource_name = "new_animation"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.2831855, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qoee6"]
+_data = {
+&"RESET": SubResource("Animation_aaktx"),
+&"new_animation": SubResource("Animation_ekobv")
+}
+
 [node name="Scene_Root" type="Node3D" unique_id=675208006]
 
 [node name="Point_zero" type="Node3D" parent="." unique_id=1939330828]
@@ -62,6 +100,7 @@ transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0, -0.52
 
 [node name="Ground" type="MeshInstance3D" parent="Point_zero" unique_id=1047196311]
 transform = Transform3D(6.72252, 0, 0, 0, 1.00151, 0, 0, 0, 8.54546, 0, -0.5, 0)
+layers = 2
 mesh = SubResource("PlaneMesh_5gb3n")
 skeleton = NodePath("../..")
 
@@ -69,14 +108,17 @@ skeleton = NodePath("../..")
 
 [node name="Camera3D" parent="Point_zero/Viewer_Control/ViewerRoot" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.325)
-environment = SubResource("Environment_ekobv")
+environment = SubResource("Environment_aaktx")
+
+[node name="WorldRoot" parent="Point_zero/Viewer_Control" index="1"]
+visible = false
 
 [node name="DirectionalLight3D" parent="Point_zero/Viewer_Control/WorldRoot" index="0"]
 shadow_bias = 0.045
 shadow_reverse_cull_face = true
 
 [node name="WorldEnvironment" parent="Point_zero/Viewer_Control/WorldRoot" index="1"]
-environment = SubResource("Environment_ekobv")
+environment = SubResource("Environment_aaktx")
 
 [node name="Ui" parent="Point_zero" unique_id=322017135 instance=ExtResource("3_ekobv")]
 script = ExtResource("4_qoee6")
@@ -88,5 +130,27 @@ texture_albedo = ExtResource("5_aaktx")
 modulate = Color(0.8217887, 0.82178867, 0.82178867, 1)
 albedo_mix = 0.25
 distance_fade_enabled = true
+
+[node name="Node3D" type="Node3D" parent="." unique_id=911623462]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Node3D" unique_id=750139856]
+transform = Transform3D(0.93678236, -0.20353281, 0.28462833, -0.26304373, 0.1268005, 0.95641506, -0.23075284, -0.9708224, 0.06524644, 0.4638666, 1.8897454, 0.21770905)
+light_color = Color(0.85783386, 0.81222576, 0.8766175, 1)
+light_energy = 3.0
+light_indirect_energy = 3.333
+light_volumetric_fog_energy = 0.0
+light_angular_distance = 11.25
+light_specular = 0.521
+light_cull_mask = 4294967293
+shadow_enabled = true
+shadow_reverse_cull_face = true
+shadow_blur = 0.306
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node3D" unique_id=1009165411]
+deterministic = true
+libraries/ = SubResource("AnimationLibrary_qoee6")
+autoplay = &"new_animation"
+playback_auto_capture = false
+movie_quit_on_finish = true
 
 [editable path="Point_zero/Viewer_Control"]

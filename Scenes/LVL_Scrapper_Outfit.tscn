@@ -3,7 +3,7 @@
 [ext_resource type="ArrayMesh" uid="uid://crog0asnyagi0" path="res://Assets/Mesh/In-game/Jedi_GEO_Poncho.res" id="1_suydi"]
 [ext_resource type="Material" uid="uid://csfm3a12hvxxl" path="res://Assets/Material/MAT_Hold.tres" id="2_a3re3"]
 [ext_resource type="ArrayMesh" uid="uid://diynod7bgscbx" path="res://Assets/Mesh/In-game/Jedi_GEO_Body.res" id="3_776ul"]
-[ext_resource type="ArrayMesh" uid="uid://bn0jqxw437jbn" path="res://Assets/Mesh/In-game/Jedi_GEO_Jacket.res" id="4_43bnb"]
+[ext_resource type="ArrayMesh" uid="uid://dqdefalk6fcae" path="res://Assets/Mesh/In-game/Jedi_GEO_Jacket.res" id="4_43bnb"]
 
 [node name="Jedi" type="Node3D" unique_id=1733874771]
 
