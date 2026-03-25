@@ -1,62 +1,81 @@
-# Nobody actually tests AAA assets in Godot. So I did.
-Everyone has an opinion on whether Godot can handle high-fidelity character presentation. But I couldn't find anyone who actually **loaded a real AAA-quality asset** and documented what happens.
-So here's the experiment.
+# Testing AAA-Quality Assets in Godot 4.3+
+
+I wanted to see how Godot handles high-fidelity character rendering, so I documented the process with a real production-quality asset.
+
 ![Character Preview](Preview.gif)
 
-## What I'm testing
-I was doing an asset for AAA quality presentation, and instead of just pushing it to Unreal like most people decide to run it through Godot 4.6's standard rendering pipeline.
-No custom shaders. No render hacks. Just StandardMaterial3D, real-time lighting, and a camera orbit system.
-The goal: **find the ceiling**. Where does Godot start to struggle? What breaks first, materials, lighting, performance, or workflow?
+## The Experiment
 
-## Why this matters
-Most Godot demos use stylized, low-poly assets. Which is fine, but it doesn't answer the question developers actually care about:
-**"If I have a realistic character asset, how far can I push Godot before I hit a wall?"**
-This project exists to give you real data instead of Reddit arguments.
-## What I found
-**Materials**: StandardMaterial3D handles PBR surprisingly well. Albedo, roughness, metallic, normal maps all work as expected. The clothing materials (leather, fabric, metal) respond correctly to lighting changes. No issues here.
-**Lighting**: Single DirectionalLight3D with shadow mapping. Runs fine. Shadows are clean. Real-time updates work. The limitation is Godot's shadow resolution settings, not the asset itself.
-**Performance**: can get 200+ FPS on my machine, but it still just one asset after all
-**Workflow pain points**: 
-- Material slot management can get messy with 6+ materials
-- Texture import settings matter more than I expected (mipmaps, compression)!
-- No real issues, just the usual 3D pipeline stuff
-**Where it breaks**: I haven't hit a hard limit yet. But I'm also not running this on a potato or trying to put 50 characters on screen.
+I took a character asset built for AAA-quality presentation and ran it through Godot 4.3's standard rendering pipeline to see how it performs.
 
-## For developers
-If you want to test your own hardware or push this further:
+**Setup:**
+- StandardMaterial3D (no custom shaders)
+- Real-time lighting
+- Camera orbit system
+- Unmodified PBR workflow
+
+**Goal:** Document real-world performance and workflow with high-poly assets in Godot.
+
+## Why I Made This
+
+There are great Godot demos out there, but many use stylized or optimized assets. I wanted to share data on what happens when you import a realistic, high-density character without simplification.
+
+If you're wondering whether Godot can handle your realistic assets, this might give you a reference point.
+
+## What I Found
+
+**Materials:** StandardMaterial3D handles PBR well out-of-the-box. Albedo, roughness, metallic, and normal maps work as expected. Clothing materials (leather, fabric, metal) respond correctly to lighting. Just a small problem with the dithering, forcing me to alpha cut.
+
+**Lighting:** Single DirectionalLight3D with shadow mapping runs smoothly. Shadows are clean with real-time updates. Performance is limited by Godot's shadow resolution settings rather than the asset. Can work nice!
+
+**Performance:** The general performance seems compatible with other engines, great!
+
+**Workflow notes:**
+- Material slot management with 3+ materials may needs attention, mostly due to Ui and how hidden they seems to be to reach
+- Texture import settings (mipmaps, compression) have noticeable impact, still misses .dds formats
+- Standard 3D pipeline workflow applies
+
+**Limitations:** This is one character in a controlled scene. Real game scenarios with animation, gameplay systems, multiple characters, and UI will have different results.
+
+## Try It Yourself
 ```bash
 git clone https://github.com/talesrt/Scrappers-Guild-StarWars.git
 cd Scrappers-Guild-StarWars
 # Open in Godot 4.3+
-# Run the main scene
 ```
-Try this:
-- Add more characters to the scene and see when fps drops
-- Swap in your own high-poly model
-- Mess with shadow resolution and quality settings
-- Test on lower-end hardware
-If you find a breaking point, document it. That's useful data for everyone.
-## For artists
-The original Blender file is in `/source`. This is the **production file**, not a cleaned-up export.
-You can check uvs, modifiers and scene preparations.
-You'll see:
+
+Test scenarios:
+- Add multiple characters and monitor performance
+- Import your own high-poly models
+- Adjust shadow resolution and quality settings
+- Test on different hardware specs
+- Get crazy
+
+If you find interesting results or limitations, please share them—that data helps everyone.
+
+## For Artists
+
+The Blender source file is in `/source` (production file, semi cleaned up).
+
+Includes:
 - UV layout for PBR texturing
 - Material slot organization
-- Topology for real-time rendering (~3280k tris, proper edge flow)
-If you're trying to get realistic characters into Godot, this is a reference for **what actually works** when you import, not just what looks good in Blender's viewport.
-Textures are 4K.
-## The honest take
-Godot handled this asset without issues. But this is **one character** in **one scene** with **basic lighting**.
-The real question isn't "Can Godot render a AAA character?", it's "Can Godot handle AAA character presentation **in your actual game**?" With animation, gameplay, UI, multiple characters, and all the other systems running.
-I don't know yet. This is just the rendering test.
-If you've pushed Godot further than this, more complex scenes, more characters, heavier assets, I want to know what you found. Where did it break? What was the bottleneck?
-## What's next
+- Real-time topology (~28k tris + now decimated character placeholder)
+- 4K textures
+
+This shows what works when importing realistic characters, from Blender viewport to Godot runtime.
+
+## What's Next
+
 I'm curious about:
-- How many of these characters can run in one scene before fps tanks
-- How the rendering holds up with complex animations
-- Whether Godot's LOD system can handle auto-switching for this mesh density
-If you test any of this, share your results.
+- Multi-character rigged and animated scene performance
+- Complex animation impact
+- How it would click in a complex scenario
+
+If you've tested similar scenarios or have insights to share, I'd love to hear about your findings.
+
 ---
-**License**: CC BY 4.0 (asset) | MIT (code)  
-**Godot Version**: 4.3+  
-**Blender Source**: Included in `/source`
+
+**License:** CC BY 4.0 (asset) | MIT (code)  
+**Godot Version:** 4.3+  
+**Blender Source:** Included in `/source`
